@@ -1,7 +1,7 @@
 Please complete the following tasks:
 
 - Clone (not fork) this repo and run `npm install` then run `npm start` to start.
-- Render the video found in the public folder on the page. Make it as pretty (or as ugly) as you like. Using a **native html5 video component** is preferred. You can also migrate the project to use typescript if you'd prefer (or create a separate react repository and import the assets).
+- Render the video found in the public folder on the page. Make it as pretty (or as ugly) as you like. Using a **native html5 video component** is preferred. You can also migrate the project to use typescript if you'd prefer (or create a separate react repository and import the video asset).
 - Set up a basic websockets implementation with node (or other back-end) that the user connects to via the React app. You may also use WebRTC instead.
 - Create some inputs on the video page that submits some text, a timestamp, and duration (or two timestamps) that sets the text to be shown at a given time during video playback
 - Ensure that websocket (or WebRTC) changes are propagated across everyone connected to the app (so all users see the text updates)

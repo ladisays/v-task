@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #000;
+  --gray-dark: #333;
+  --gray: #CCC;
+  --white: #FFF;
+  --red: #F03A47;
+  --red-rgb: 240, 58, 71;
+  --green: #0B7A75;
+  --green-rgb: 11, 122, 117;
+  --radius: 4px;
+}

@@ -1,11 +1,19 @@
 import './App.css';
+import { SocketProvider } from './socket';
+import Status from './Status';
+import Player from './Player';
+import VideoForm from './VideoForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Insert app here :)
-      </header>
+    <div className="app">
+      <SocketProvider>
+        <Status />
+        <main>
+          <Player />
+          <VideoForm />
+        </main>
+      </SocketProvider>
     </div>
   );
 }

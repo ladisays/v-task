@@ -83,13 +83,16 @@ export const Form = ({ initialValues, schema, onSubmit, children }) => {
   )
 };
 
+export const FormRow = ({ children, ...props }) => (
+  <div className="form-row" {...props}>{children}</div>
+);
+
 export const Field = ({
   id = '',
   as = 'input',
   type = 'text',
   name,
   label = '',
-  inline = false,
   className = '',
   options = [],
   children,
@@ -98,9 +101,6 @@ export const Field = ({
   const { values, errors, handleChange, handleBlur } = useContext(FormContext);
   const value = values[name];
   const error = errors[name];
-  if (!inline) {
-    className += ' block';
-  }
   const props = {
     id: id || name,
     name,

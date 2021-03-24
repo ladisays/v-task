@@ -83,7 +83,7 @@ const Player = () => {
           const { marker, success } = data;
           setMarkers((m) => [...m, marker]);
           if (success) {
-            alert(`Message posted - ${marker.id}`);
+            alert(`Message success - ${marker.id}`);
           }
         }
       };

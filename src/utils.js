@@ -1,11 +1,6 @@
 const yup = require('yup');
 const moment = require('moment');
 
-const ACTIONS = {
-  HIDE: 0,
-  SHOW: 1,
-};
-
 const formats = ['m:ss', 's'];
 const schema = yup.object({
   datatype: yup.string(),
@@ -22,22 +17,25 @@ const schema = yup.object({
   start: yup
     .string()
     .trim()
-    .required("Start time is required")
-    .test("timestamp", "Start time is invalid", (value) =>
+    .required('Start time is required')
+    .test('timestamp', 'Start time is invalid', (value) =>
       moment(value, formats[0], true).isValid()
     ),
   end: yup
     .string()
     .trim()
-    .required("End time is required")
-    .test("timestamp", "End time is invalid", (value) =>
+    .required('End time is required')
+    .test('timestamp', 'End time is invalid', (value) =>
       moment(value, formats, true).isValid()
-    ),
-  // .test('isAfterStart', 'End time must be after start time', (value) => moment(value, formats, true).isAfter(moment()))
+    )
+    .test('isAfterStart', 'End time must be after start time', function (value) {
+      const { start } = this.parent;
+      if (!start) return true;
+      return moment(value, formats, true).isAfter(moment(start, formats[0], true));
+    })
 });
 
 module.exports = {
-  ACTIONS,
   formats,
   schema
 };

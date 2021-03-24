@@ -4,7 +4,8 @@ const { v4: uuid } = require('uuid');
 
 const { schema, formats } = require('./src/utils');
 
-const wss = new WebSocket.Server({ port: 9900 });
+const port = process.env.PORT || 9900;
+const wss = new WebSocket.Server({ port });
 
 const toSeconds = (timestamp) => moment.duration(`00:${timestamp}`).asSeconds() || 0;
 const generateMarker = (data) => {

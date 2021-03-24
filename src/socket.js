@@ -21,7 +21,7 @@ export const SocketProvider = ({ children }) => {
     return data;
   };
   const init = useCallback(() => {
-    const ws = new WebSocket('ws://localhost:9900');
+    const ws = new WebSocket(process.env.REACT_APP_WS_SERVER);
     ws.onopen = () => {
       setOpen(ws.readyState === WebSocket.OPEN);
     };

@@ -1,3 +1,20 @@
+## Setup
+- Clone the repo and duplicate the file named `.env.example` as `.env` in the root directory.
+- Update the `REACT_APP_WS_SERVER` key to the address of the websocket server e.g. `ws://localhost:9900`
+- In a shell window, run `npm install`, then `npm server` to start the server.
+- In another window, run `npm start` to start the client.
+
+### Development Process
+
+- Analysis/Planning: The task requires to build an interface that can display a video along with textual/visual components. The basic requirements are fairly straightforward, but as this required some real-time functionality, I had to learn more about WebRTC, as I don't have extensive knowledge under that technology.
+- Understanding requirements: Questions were asked in order to fully understand what the specifics were. I fleshed out the requirements into different features, so it was easier to focus on one at a time.
+- Prototyping: Not much was done here, apart from sketching out on a piece of paper to be able to visualise the features that were going to be developed and how they would connect to each other.
+- Development: Built the features that were needed on a task by task basis. I chose not to go the test-driven development route, because I needed to ensure that I was able to work on the requirements within the time available to me.
+- Testing: The only testing that was done was manual testing. And once I noticed any bugs, I would go back and fix them.
+
+
+### Task
+
 Please complete the following tasks:
 
 - Clone (not fork) this repo and run `npm install` then run `npm start` to start.

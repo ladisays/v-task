@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSocket } from './socket';
 import { schema } from './utils';
-import { Form, Field } from './Form';
+import { Form, Field, FormRow } from './Form';
 
 const initialValues = {
   datatype: 'text',
@@ -97,60 +97,70 @@ const VideoForm = () => {
                   placeholder="e.g This is my caption"
                 />
               )}
-              <Field
-                name="start"
-                label="Start time"
-                placeholder="00:00"
-                className="w-50"
-              />
-              <Field
-                name="end"
-                label="End time"
-                placeholder="0"
-                className="w-50"
-              />
+              <FormRow>
+                <Field
+                  name="start"
+                  label="Start time"
+                  placeholder="00:00"
+                  className="w-50"
+                />
+                <Field
+                  name="end"
+                  label="End time"
+                  placeholder="0"
+                  className="w-50"
+                />
+              </FormRow>
+              <FormRow>
+                <Field
+                  name="x_value"
+                  label="X position"
+                  placeholder="0"
+                  className="w-50"
+                />
+                <Field
+                  name="x_unit"
+                  label="X unit"
+                  as="select"
+                  options={units}
+                  className="w-50"
+                />
+              </FormRow>
+              <FormRow>
+                <Field
+                  name="y_value"
+                  label="Y position"
+                  placeholder="0"
+                  className="w-50"
+                />
+                <Field
+                  name="y_unit"
+                  label="Y unit"
+                  as="select"
+                  options={units}
+                  className="w-50"
+                />
+              </FormRow>
               {!isImage && (
                 <>
-                  <Field
-                    name="x_value"
-                    label="X position"
-                    placeholder="0"
-                    className="w-50"
-                  />
-                  <Field
-                    name="x_unit"
-                    label="X unit"
-                    as="select"
-                    options={units}
-                    className="w-50"
-                  />
-                  <Field
-                    name="y_value"
-                    label="Y position"
-                    placeholder="0"
-                    className="w-50"
-                  />
-                  <Field
-                    name="y_unit"
-                    label="Y unit"
-                    as="select"
-                    options={units}
-                    className="w-50"
-                  />
-                  <Field
-                    name="textcolor"
-                    type="color"
-                    label="Color"
-                    className="w-50"
-                  />
-                  <Field
-                    name="backcolor"
-                    type="color"
-                    label="Background color"
-                    className="w-50"
-                  />
-                  <Field name="bold" type="checkbox" label="Bold" />
-                  <Field name="italic" type="checkbox" label="Italic" />
+                  <FormRow>
+                    <Field
+                      name="textcolor"
+                      type="color"
+                      label="Color"
+                      className="w-50"
+                    />
+                    <Field
+                      name="backcolor"
+                      type="color"
+                      label="Background color"
+                      className="w-50"
+                    />
+                  </FormRow>
+                  <FormRow>
+                    <Field name="bold" type="checkbox" label="Bold" />
+                    <Field name="italic" type="checkbox" label="Italic" />
+                  </FormRow>
                 </>
               )}
               <button type="submit">Send</button>

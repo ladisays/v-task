@@ -13,13 +13,17 @@ const Marker = ({ datatype, image, text, time, paused, start, end, ...props }) =
     y_value || 0
   }${units[y_unit]})`;
 
-  const style = {
+  let styles = {
     color: textcolor,
     backgroundColor: backcolor,
     fontWeight: bold ? 'bold' : undefined,
-    fontStyle: italic ? 'italic' : undefined,
-    transform
+    fontStyle: italic ? 'italic' : undefined
   };
+  if (datatype === 'text') {
+    styles.transform = transform;
+  } else {
+    styles = { transform };
+  }
 
   useEffect(() => {
     if (!visible && time >= start && time < end) {
@@ -33,7 +37,7 @@ const Marker = ({ datatype, image, text, time, paused, start, end, ...props }) =
   if (paused === undefined || !visible) return null;
 
   return (
-    <div className="marker" style={datatype === 'text' ? style : {}}>
+    <div className="marker" style={styles}>
       {datatype === 'text' && text}
       {datatype === 'image' && <span><img src={image} alt='' /></span>}
     </div>
